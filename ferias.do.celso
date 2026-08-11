@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fim das férias do Celso</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  #titulo {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  #contador {
+    font-size: 2.5em;
+    font-weight: bold;
+    background: #ffffff;
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+</style>
+
+</head>
+<body>
+
+<h1 id="titulo">
+  <span style="color:#e40303">F</span>
+  <span style="color:#ff8c00">i</span>
+  <span style="color:#ffed00">m</span>
+  <span>&nbsp;</span>
+
+  <span style="color:#008026">d</span>
+  <span style="color:#004dff">a</span>
+  <span style="color:#750787">s</span>
+  <span>&nbsp;</span>
+
+  <span style="color:#e40303">f</span>
+  <span style="color:#ff8c00">é</span>
+  <span style="color:#ffed00">r</span>
+  <span style="color:#008026">i</span>
+  <span style="color:#004dff">a</span>
+  <span style="color:#750787">s</span>
+  <span>&nbsp;</span>
+
+  <span style="color:#e40303">d</span>
+  <span style="color:#ff8c00">o</span>
+  <span>&nbsp;</span>
+
+  <span style="color:#ffed00">C</span>
+  <span style="color:#008026">e</span>
+  <span style="color:#004dff">l</span>
+  <span style="color:#750787">s</span>
+  <span style="color:#e40303">o</span>
+</h1>
+
+<div id="contador">A calcular...</div>
+
+<script>
+function atualizarContador() {
+
+  // 14/08/2026 às 17:00
+  const destino = new Date(2026, 7, 14, 17, 0, 0);
+
+  const agora = new Date();
+  const diff = destino - agora;
+
+  if (diff <= 0) {
+    document.getElementById("contador").innerHTML =
+      "🎉 Acabaram as férias do Celso! 🎉";
+    return;
+  }
+
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diff / (1000 * 60)) % 60);
+  const segundos = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("contador").innerHTML =
+    `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+}
+
+atualizarContador();
+setInterval(atualizarContador, 1000);
+</script>
+
+</body>
+</html>
